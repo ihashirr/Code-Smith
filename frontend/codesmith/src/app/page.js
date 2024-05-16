@@ -1,95 +1,139 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+// import './Header.css';
 
-export default function Home() {
+
+import './dady.css';
+import React from 'react';
+import picx from "./hash.jpg" ;
+import ash from "./ash.jpg";
+import shas from "./shas.jpg";
+import asthetic from "./asthetic.jpg";
+
+import Image from "next/image"
+
+function App() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <div className="container">
+      <header className="header">
+        <div className="logo">CS</div>
+        <nav className="nav">
+          <ul>
+            <li>
+              <a href="#">Landing page</a>
+            </li>
+            <li>
+              <a href="#">Data Entry Page</a>
+            </li>
+            <li>
+              <a href="#">Reports page</a>
+            </li>
+            <li>
+              <a href="#">Admin Panel</a>
+            </li>
+           <div className="blues">
+           <button class ="auth"> <a href="#">SIGN UP</a>
+           </button>
+           <button class="auth"> <a href="#">LOG IN</a>
+            </button>
+            </div>
+           </ul>
+          
+        </nav>
+        
+  
+      </header>
+      <div class="line"></div>
+      <div className="img">
+          <Image src={picx} alt="Your image description" className="bottom-image" />
+          <div class="img-text">Welcome to codesmith</div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <main className="main">
+        <section className="hero">
+          <ul>
+          <h2>WELCOME TO CODESMITH!</h2>
+          </ul>
+          <div className="amg">
+          <Image src={ash} alt="Your image description" className="amg" />
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
           <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
           </p>
-        </a>
+
+<div className="shas">
+          <Image src={shas} alt="Your image description" className="shas" />
       </div>
-    </main>
+      <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          </p>
+
+          <div class="linetwo"></div>
+
+          <div className="asthetic">
+          <Image src={asthetic} alt="Your image description" className="asthetic" />
+      </div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          </p>
+          </section>
+        
+        {/* ... Other sections in your main content */}
+        <section className="head">
+        <div class="linethree"></div>
+      <h4>Header text</h4>
+      
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod risus eget laoreet rutrum. Pellentesque at lorem vel mi placerat vehicula eget nec urna. In hac habitasse platea dictumst. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor
+      </p>
+      <div class="linefour"></div>
+      </section>
+      <div class="line-above-codesmith"></div>
+      <h5>CodeSmith</h5>
+      <p>Text</p>
+      <p>Text</p>
+      <p>Text</p>
+      <p>Text</p>
+      <div class="ader">
+      <h6>Header</h6>
+      <p>Text</p>
+      <p>Text</p>
+      <p>Text</p>
+      <p>Text</p>
+      </div>
+      <div class="eader">
+      <h7>Header</h7>
+      <p>Text</p>
+      <p>Text</p>
+      <p>Text</p>
+      <p>Text</p>
+      </div>
+
+
+
+      </main>
+      <footer className="footer">
+        <p>&copy; 2024 CodeSmith | Terms of services | Privacy Notice    CodeSmith 2024. All rights reserved</p>
+      </footer>
+
+
+    </div>
   );
 }
+export default App;
