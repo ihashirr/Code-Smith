@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 1em;
+}
+
+.card {
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    margin: 1em;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-img {
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+@media screen and (max-width: 600px) {
+    .card {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .card {
+        width: 45%;
+    }
+}
+@media screen and (min-width: 1025px) {
+    .card {
+        width: 30%;
+    }
+}
+	</style>
+</head>
+<body>
+	<div class="card-container">
+        <div class="card">
+            <img src="image1.png" alt="Image 1" class="card-img">
+            <div class="container">
+                <h4><b>Card 1</b></h4> 
+                <p>Some text..</p> 
+            </div>
+        </div>
+        <div class="card">
+            <img src="image1.png" alt="Image 1" class="card-img">
+            <div class="container">
+                <h4><b>Card 1</b></h4> 
+                <p>Some text..</p> 
+            </div>
+        </div>
+        <div class="card">
+            <img src="image1.png" alt="Image 1" class="card-img">
+            <div class="container">
+                <h4><b>Card 1</b></h4> 
+                <p>Some text..</p> 
+            </div>
+        </div>
+        <div class="card">
+            <img src="image1.png" alt="Image 1" class="card-img">
+            <div class="container">
+                <h4><b>Card 1</b></h4> 
+                <p>Some text..</p> 
+            </div>
+        </div>
+        <div class="card">
+            <img src="image1.png" alt="Image 1" class="card-img">
+            <div class="container">
+                <h4><b>Card 1</b></h4> 
+                <p>Some text..</p> 
+            </div>
+        </div>
+        <div class="card">
+            <img src="image1.png" alt="Image 1" class="card-img">
+            <div class="container">
+                <h4><b>Card 1</b></h4> 
+                <p>Some text..</p> 
+            </div>
+        </div>
+        <div class="card">
+            <img src="./image1.png" alt="Image 1" class="card-img">
+            <div class="container">
+                <h4><b>Card 1</b></h4> 
+                <p>Some text..</p> 
+            </div>
+        </div>
+        <div class="card">
+            <img src="image1.png" alt="Image 1" class="card-img">
+            <div class="container">
+                <h4><b>Card 1</b></h4> 
+                <p>Some text..</p> 
+            </div>
+        </div>
+        <!-- Repeat for the remaining cards -->
+    </div>
+</body>
+</html>

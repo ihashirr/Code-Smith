@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login and Signup</title>
+</head>
+<body>
+	<h2>Login</h2>
+	<form action="http://localhost:3000/login" method="post">
+		<label for="loginUsername">Username:</label><br>
+		<input type="text" id="loginUsername" name="username"><br>
+		<label for="loginPassword">Password:</label><br>
+		<input type="password" id="loginPassword" name="password"><br>
+		<input type="submit" value="Login">
+	</form>
+
+	<h2>Signup</h2>
+	<form action="http://localhost:3000/register" method="post">
+		<label for="signupUsername">Username:</label><br>
+		<input type="text" id="signupUsername" name="username"><br>
+		<label for="signupPassword">Password:</label><br>
+		<input type="password" id="signupPassword" name="password"><br>
+		<input type="submit" value="Signup">
+	</form>
+	<a href="http://localhost:3000/protected">Go to protected page</a>
+	<a href="http://localhost:3000/logouts">log it out</a>
+ 
+</body>
+</html>
+
+
