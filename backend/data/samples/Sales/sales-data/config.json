@@ -1,0 +1,14 @@
+{
+    "shortid": "B1lSTrt6NB",
+    "name": "sales-data",
+    "creationDate": {
+        "$$date": 1715955951110
+    },
+    "modificationDate": {
+        "$$date": 1715955951110
+    },
+    "inheritedReadPermissions": [],
+    "inheritedEditPermissions": [],
+    "_id": "cTIyh50AyFwjUdZh",
+    "$entitySet": "data"
+}

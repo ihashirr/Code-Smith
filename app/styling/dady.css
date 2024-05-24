@@ -1,0 +1,242 @@
+Header styles */
+/* .header {
+  background-color: #ffffff;
+  color: #E1F7F5; 
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: lightblue; /* Inherit text color from header */
+}
+
+.nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  position: relative;
+}
+
+.line {
+  width: 1450px;
+  height: 2px;
+  background-color: rgb(112, 186, 211);
+  margin-top: 100px;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  /* background-color: aqua; */
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  /* color: red; */
+}
+
+/* ul li a {
+  text-decoration: none;
+  color: black;
+} */
+
+.nav-item {
+  margin-right: 1.5rem; /* Adjust margin between links */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit; /* Inherit text color from header */
+  font-weight: 500; /* Slightly bolder for better readability */
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  color: rgb(116, 145, 153); /* Light teal accent color on hover */
+}
+
+/* Main content styles */
+.main {
+  padding: 2rem; /* Add some padding to main content sections */
+}
+
+.hero,
+.services,
+.about,
+.contact { /* Style each main content section */
+  margin-bottom: 2rem;
+  /* Maintain some spacing for visual separation */
+  /* Removed border-bottom for a cleaner look */
+}
+
+h3 { /* Style section titles */
+  margin-bottom: 1rem;
+  font-size: 1.25em; /* Adjust font size for better hierarchy */
+  color: rgb(237, 232, 232); /* Use dark gray for titles */
+}
+
+p { /* Style paragraph text */
+  line-height: 1.5; /* Adjust line height for better readability */
+  color: rgb(188, 157, 157); /* Use a lighter shade of gray for body text */
+}
+
+button { /* Style buttons */
+  background-color: rgb(234, 230, 241); /* Dark gray button background */
+  color: #fff; /* White button text */
+  padding: 0.75rem 1.5rem; /* Adjust padding for better size */
+  border: none;
+  border-radius: 4px; /* Add subtle border radius for smoothness */
+  cursor: pointer; /* Indicate clickable action */
+  transition: background-color 0.2s ease-in-out; /* Add a subtle hover effect */
+}
+
+button:hover {
+  background-color: #1E0342; /* Darken background on hover */
+}
+
+/* Add styles for specific sections (optional) */
+.hero { /* Example for hero section */
+  text-align: center; /* Center align hero content */
+}
+
+.hero ul {
+  background-color: hsl(186deg, 68%, 71%);
+  padding: 100px;
+}
+
+.services ul { /* Example for services list */
+  list-style: none; /* Remove default list style */
+  padding: 0;
+  margin: 0;
+}
+
+.services li { /* Example for services list items */
+  margin-bottom: 1rem;
+}
+
+.services li span.service-icon { /* Example for service icons */
+  margin-right: 1rem;
+  font-size: 1.5em;
+  color: #9AC8CD; /* Light teal accent color for icons */
+}
+
+.img {
+  width: 98vw;
+  height: 70vh;
+}
+
+.bottom-image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  filter: blur(5px);
+}
+
+.img-text {
+  color: brown; /* Text color */
+  font-style: italic;
+  font-size: 30px; /* Font size */
+  position: absolute; /* Make it absolute relative to the image */
+  top: 50%; /* Position vertically at image center */
+  left: 50%; /* Position horizontally at image center */
+  transform: translate(-50%, -50%); /* Center the text within the image */
+}
+
+.blues {
+  display: flex;
+  flex-direction: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+.auth {
+  display: inline-block;
+  margin-right: 10px;
+  background-color: rgb(112, 186, 211);
+  padding: 10px 20px; /* Add padding for spacing */
+  border: none; /* Remove default button border */
+  border-radius: 5px;
+  color: whitesmoke;
+}
+
+.amg {
+  width: 400px;
+  height: 350px;
+  float: right;
+}
+
+.shas {
+  width: 400px;
+  height: 350px;
+  float: left;
+}
+
+.linetwo {
+  width: 1450px;
+  height: 2px;
+  background-color: rgba(45, 48, 49, 0.442);
+  margin-top: 100px;
+}
+
+.asthetic {
+  width: 400px;
+  height: 350px;
+  float: right;
+}
+
+.linethree {
+  width: 1450px;
+  height: 2px;
+  background-color: rgb(112, 186, 211);
+  margin-top: 100px;
+}
+
+.linefour {
+  width: 1450px;
+  height: 3px;
+  background-color: rgb(112, 186, 211);
+  margin-top: 100px;
+}
+
+.head {
+  background-color: lightblue; /* Replace with your color choice */
+  padding: -10px;
+  width: 91pc;
+}
+
+h4 {
+  font-size: 2em;
+}
+
+h5 {
+  position: relative; /* Make the h5 element relative for positioning */
+  padding-top: 10px; /* Add some padding to accommodate the line (optional) */
+}
+
+h5:before {
+  content: ""; /* Empty content to create a line */
+  display: block;
+  width: 100%; /* Span the full width */
+  height: 4px; /* Set the height of the line */
+  background-color: lightblue; /* Set the color to light blue */
+  position: absolute; /* Make it absolute relative to h5 */
+  top: 0; /* Position it at the top of the h5 element */
+}
+
+.ader {
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center;
+}
+
+.eader {
+  float: right;
+}
+ 

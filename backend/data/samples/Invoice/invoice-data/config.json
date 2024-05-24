@@ -1,0 +1,14 @@
+{
+    "shortid": "Sy5S19ncg",
+    "name": "invoice-data",
+    "creationDate": {
+        "$$date": 1715955951095
+    },
+    "modificationDate": {
+        "$$date": 1715955951095
+    },
+    "inheritedReadPermissions": [],
+    "inheritedEditPermissions": [],
+    "_id": "U0MsW9Sr4uK9R5z5",
+    "$entitySet": "data"
+}
