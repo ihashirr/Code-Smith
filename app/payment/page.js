@@ -1,140 +1,106 @@
 "use client"
 import { CheckIcon } from '@heroicons/react/20/solid'
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
-const includedFeatures = [
-	'Private forum access',
-	'Member resources',
-	'Entry to annual conference',
-	'Official member t-shirt',
-]
+const cardData = [
+  {
+    title: 'Software Purchase',
+    description: 'Purchase our software package and own it forever. Get full access to all features with a one-time payment.',
+    price: '100 DHS',
+    features: ['Lifetime access to software', 'Full feature set included'],
+    backgroundColor: '#BAD6DE',
+    textColor: 'text-gray-900',
+    buttonColor: 'bg-indigo-600',
+    hoverColor: 'hover:bg-indigo-500',
+  },
+  {
+    title: 'Monthly Subscription',
+    description: 'Subscribe to our monthly package and get continuous access to the software with free maintenance updates.',
+    price: '200 DHS / month',
+    features: ['Monthly subscription', 'Free maintenance updates', 'Cancel anytime'],
+    backgroundColor: '#FED7B0',
+    textColor: 'text-gray-800',
+    buttonColor: 'bg-yellow-500',
+    hoverColor: 'hover:bg-yellow-400',
+  },
+];
 
 export default function Example() {
-	return (
-		<motion.div
-
-		>
-			<div className="bg-white py-24 sm:py-32 ">
-				<div className="mx-auto max-w-7xl px-6 lg:px-8">
-					<div className="mx-auto max-w-2xl sm:text-center">
-						<motion.h2
-							whileHover={{
-								scale: 1.05,
-								transition: { duration: 0.1, ease: [0.48, 0.15, 0.25, 0.96] },
-								color: 'hotPink',
-							}}
-							className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Simple no-tricks pricing</motion.h2>
-						<motion.p whileHover={{
-							scaleX: 1.05,
-							transition: { duration: 0.1, ease: [0.48, 0.15, 0.25, 0.96] },
-							color: 'hotPink',
-						}}
-							className="mt-6 text-lg leading-8 text-gray-600">
-							Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas
-							in. Explicabo id ut laborum.
-						</motion.p>
-					</div>
-					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
-						<div className="p-8 sm:p-10 lg:flex-auto">
-							<h3 className="text-2xl font-bold tracking-tight text-gray-900">Lifetime membership</h3>
-							<p className="mt-6 text-base leading-7 text-gray-600">
-								Lorem ipsum dolor sit amet consect etur adipisicing elit. Itaque amet indis perferendis blanditiis
-								repellendus etur quidem assumenda.
-							</p>
-							<div className="mt-10 flex items-center gap-x-4">
-								<h4 className="flex-none text-sm font-semibold leading-6 text-indigo-600">What’s included</h4>
-								<div className="h-px flex-auto bg-gray-100" />
-							</div>
-							<ul
-								role="list"
-								className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
-							>
-								{includedFeatures.map((feature) => (
-									<li key={feature} className="flex gap-x-3">
-										<CheckIcon className="h-6 w-5 flex-none text-indigo-600" aria-hidden="true" />
-										{feature}
-									</li>
-								))}
-							</ul>
-						</div>
-						<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
-							<motion.div
-									whileHover={{
-										scale: 1.05,
-										transition: { duration: 0.1, ease: [0.48, 0.15, 0.25, 0.96] },
-										// color: 'hotPink',
-										backgroundColor: '#BAD6DE',
-									}} className="rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
-								<div className="mx-auto max-w-xs px-8">
-									<p className="text-base font-semibold text-gray-600">Pay once, own it forever</p>
-									<p className="mt-6 flex items-baseline justify-center gap-x-2">
-										<span className="text-5xl font-bold tracking-tight text-gray-900">$349</span>
-										<span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">USD</span>
-									</p>
-									<a
-										href="#"
-										className="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-									>
-										Get access
-									</a>
-									<p className="mt-6 text-xs leading-5 text-gray-600">
-										Invoices and receipts available for easy company reimbursement
-									</p>
-								</div>
-							</motion.div>
-						</div>
-					</div>
-				</div>
-				<div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-					<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
-						<div className="p-8 sm:p-10 lg:flex-auto">
-							<h3 className="text-2xl font-bold tracking-tight text-gray-900">Lifetime membership</h3>
-							<p className="mt-6 text-base leading-7 text-gray-600">
-								Lorem ipsum dolor sit amet consect etur adipisicing elit. Itaque amet indis perferendis blanditiis
-								repellendus etur quidem assumenda.
-							</p>
-							<div className="mt-10 flex items-center gap-x-4">
-								<h4 className="flex-none text-sm font-semibold leading-6 text-indigo-600">What’s included</h4>
-								<div className="h-px flex-auto bg-gray-100" />
-							</div>
-							<ul
-								role="list"
-								className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
-							>
-								{includedFeatures.map((feature) => (
-									<li key={feature} className="flex gap-x-3">
-										<CheckIcon className="h-6 w-5 flex-none text-indigo-600" aria-hidden="true" />
-										{feature}
-									</li>
-								))}
-							</ul>
-						</div>
-						<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
-							<div className="rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
-								<div className="mx-auto max-w-xs px-8">
-									<p className="text-base font-semibold text-gray-600">Pay once, own it forever</p>
-									<p className="mt-6 flex items-baseline justify-center gap-x-2">
-										<span className="text-5xl font-bold tracking-tight text-gray-900">$349</span>
-										<span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">USD</span>
-									</p>
-									<a
-										href="#"
-										className="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-									>
-										Get access
-									</a>
-									<p className="mt-6 text-xs leading-5 text-gray-600">
-										Invoices and receipts available for easy company reimbursement
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</motion.div>
-	)
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-8 sm:py-12">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="mx-auto max-w-2xl sm:text-center">
+            <motion.h2
+              whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.1, ease: [0.48, 0.15, 0.25, 0.96] },
+                color: 'hotPink',
+              }}
+              className="text-2xl sm:text-3xl font-bold tracking-tight text-white"
+            >
+              Choose Your Plan
+            </motion.h2>
+            <motion.p
+              whileHover={{
+                scaleX: 1.05,
+                transition: { duration: 0.1, ease: [0.48, 0.15, 0.25, 0.96] },
+                color: 'hotPink',
+              }}
+              className="mt-3 sm:mt-4 text-base sm:text-lg leading-6 text-white"
+            >
+              We offer two plans tailored to your needs.
+            </motion.p>
+          </div>
+          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {cardData.map((card, index) => (
+              <motion.div
+                key={index}
+                whileHover={{
+                  scale: 1.05,
+                  transition: { duration: 0.1, ease: [0.48, 0.15, 0.25, 0.96] },
+                  backgroundColor: card.backgroundColor,
+                }}
+                className="rounded-lg bg-gray-50 py-4 sm:py-6 text-center ring-1 ring-inset ring-gray-900/5"
+              >
+                <div className="mx-auto max-w-xs px-4 sm:px-6">
+                  <h3 className={`text-lg sm:text-xl font-bold tracking-tight ${card.textColor}`}>{card.title}</h3>
+                  <p className={`mt-2 sm:mt-3 text-sm sm:text-base leading-6 ${card.textColor}`}>{card.description}</p>
+                  <div className="mt-3 flex items-center justify-center sm:justify-start gap-x-2">
+                    <h4 className="flex-none text-xs font-semibold leading-6 text-indigo-600">What’s included</h4>
+                    <div className="h-px flex-auto bg-gray-100" />
+                  </div>
+                  <ul
+                    role="list"
+                    className="mt-3 grid grid-cols-1 gap-1 text-xs sm:text-sm leading-5 text-gray-600"
+                  >
+                    {card.features.map((feature, index) => (
+                      <li key={index} className="flex items-center gap-x-2">
+                        <CheckIcon className="h-3 w-3 flex-none text-indigo-600" aria-hidden="true" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-3 flex items-baseline justify-center gap-x-1">
+                    <span className="text-sm sm:text-base font-bold tracking-tight text-gray-900">{card.price}</span>
+                  </p>
+                  <Link
+                    href="/login"
+                    className={`mt-4 block w-full rounded-md ${card.buttonColor} px-3 py-1.5 sm:py-2 text-center text-xs sm:text-sm font-semibold text-white shadow-sm ${card.hoverColor} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
+                  >
+                    Get started
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
 }
-
-

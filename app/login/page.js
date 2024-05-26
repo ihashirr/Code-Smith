@@ -1,150 +1,153 @@
-"use client"
-import React, { useState,useContext,useEffect } from 'react';
-
+"use client";
+import React, { useState, useContext, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import "..//styling/login.css";
-import Layout from "../layout";
-
-import { auth, googleProvider } from '../utils/firebase';
-import { signInWithPopup } from "firebase/auth";
-import { AuthContext } from '../components/AuthContext'; // Import AuthContext
-
-import Modal from '../components/Modal'; // Import your Modal component
-import ModalContent from '../components/ModalBackdrop'; // Import your ModalContent component
+import "../styling/login.css";
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { auth, googleProvider } from '../Create/firebase';
+import { signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { AuthContext } from '../components/AuthContext';
+import ModalContent from '../components/ModalBackdrop';
 
 export default function App() {
-	const [isLogin, setIsLogin] = useState(true);
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const router = useRouter();
-	const { user } = useContext(AuthContext);
-	const [username, setUsername] = useState('');
-	const [showModal, setShowModal] = useState(false);
-	const [profilePic, setProfilePic] = useState('');
-	const { signInWithGoogle } = useContext(AuthContext);
+  const [isLogin, setIsLogin] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const router = useRouter();
+  const { user, signInWithGoogle, signUpWithEmail, signInWithEmail } = useContext(AuthContext);
+  const [username, setUsername] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [profilePic, setProfilePic] = useState('');
 
-	const handleCloseModal = () => {
-		setShowModal(false);
-	};
-	useEffect(() => {
-		if (user) {
-		  setUsername(user.displayName);
-		  setProfilePic(user.photoURL);
-		  setShowModal(true);
-		}
-	  }, [user]); // Update state when user changes
-	
-	console.log('Current user from context:', user);
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
+  useEffect(() => {
+    if (user) {
+      setUsername(user.displayName || user.email);
+      setProfilePic(user.photoURL || '');
+      setShowModal(true);
+    }
+  }, [user]);
 
-		// Form validation
-		if (!email || !password) {
-			alert('Email and password are required');
-			return;
-		}
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-		if (password.length < 6) {
-			alert('Password must be at least 6 characters long');
-			return;
-		}
+    if (!email || !password) {
+      alert('Email and password are required');
+      return;
+    }
 
-		// If validation passes, make the fetch request
-		try {
-			const url = isLogin ? 'http://localhost:3000/login' : 'http://localhost:3000/register';
-			const response = await fetch(url, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({
-					email,
-					password,
-				}),
-			});
+    if (password.length < 6) {
+      alert('Password must be at least 6 characters long');
+      return;
+    }
 
-			if (response.ok) {
-				router.push('/');
-				setUsername(data.username);
-			} else {
-				// Handle error
-			}
-		} catch (error) {
-			console.error('Error:', error);
-		}
-	};
+    try {
+      if (isLogin) {
+        await signInWithEmail(email, password);
+      } else {
+        await signUpWithEmail(email, password);
+      }
+      router.push('/upload');
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
-	return (
-		<div className="app-container">
-			{isLogin ? (
-				<div className="login-container">
-					<h1>Login</h1>
-					<form onSubmit={handleSubmit}>
-						<div className="form-group">
-							<label htmlFor="email">Email:</label>
-							<input type="email" id="email" name="email" required value={email} onChange={e => setEmail(e.target.value)} />
-						</div>
-						<div className="form-group">
-							<label htmlFor="password">Password:</label>
-							<input type="password" id="password" name="password" required value={password} onChange={e => setPassword(e.target.value)} />
-						</div>
-						<button type="submit">Login</button>
-					</form>
-					<p>
-						Don't have an account?{' '}
-						<a href="#" onClick={() => setIsLogin(false)}>
-							Sign up here
-						</a>
-						<button
-							className="bg-blue-600 text-white px-4 py-2 rounded flex items-center space-x-2"
-							onClick={() => signInWithGoogle()}
-						>
-							<svg className="w-5 h-5" viewBox="0 0 40 40">
-								<path d="M20 3.6c-9.1 0-16.4 7.3-16.4 16.4s7.3 16.4 16.4 16.4 16.4-7.3 16.4-16.4S29.1 3.6 20 3.6zm0 30.4c-7.7 0-14-6.3-14-14s6.3-14 14-14 14 6.3 14 14-6.3 14-14 14zm7.7-20.7v2.8h-2.8v2.8h-2.8v-2.8h-2.8v-2.8h2.8V7.7h2.8v2.8h2.8zm-2.8-2.8h-2.8v2.8h2.8V7.7zm-2.8 2.8v2.8h-2.8v-2.8h2.8zm0 2.8v2.8h-2.8v-2.8h2.8z" fill="#ffffff"></path>
-							</svg>
-							<span>Sign in with Google</span>
-						</button>
-						.
-					</p>
-				</div>
-			) : (
-				<div className="signup-container">
-					<h1>Sign Up</h1>
-					<form onSubmit={handleSubmit}>
-						<div className="form-group">
-							<label htmlFor="email">Email:</label>
-							<input type="email" id="email" name="email" required value={email} onChange={e => setEmail(e.target.value)} />
-						</div>
-						<div className="form-group">
-							<label htmlFor="password">Password:</label>
-							<input type="password" id="password" name="password" required value={password} onChange={e => setPassword(e.target.value)} />
-						</div>
-						<div className="form-group">
-							<label htmlFor="confirm-password">Confirm Password:</label>
-							<input type="password" id="confirm-password" name="confirm-password" required />
-						</div>
-						<button type="submit">Sign Up</button>
-					</form>
-					<p>
-						Already have an account?{' '}
-						<a href="#" onClick={() => setIsLogin(true)}>
-							Login here
-						</a>
-						.
-					</p>
-				</div>
-			)}
-			{showModal && (
-				<div>
-					<ModalContent />
-					<Modal onClose={handleCloseModal}>
-						<h2>Welcome {username}🎉🎉🎊</h2>
-						<p>You are signed in now</p>
-						{profilePic && <img src={profilePic} alt="Profile" />}
-					</Modal>
-				</div>
-			)}
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 p-6">
+      <motion.div
+        className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        {isLogin ? (
+          <div>
+            <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="form-group">
+                <label htmlFor="email" className="block text-gray-700">Email:</label>
+                <input type="email" id="email" name="email" required value={email} onChange={e => setEmail(e.target.value)} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="password" className="block text-gray-700">Password:</label>
+                <input type="password" id="password" name="password" required value={password} onChange={e => setPassword(e.target.value)} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              </div>
+              <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Login</button>
+            </form>
+            <p className="mt-4 text-center">
+              Don't have an account?{' '}
+              <Link href="#" onClick={() => setIsLogin(false)} className="text-blue-500 hover:underline">Sign up here</Link>
+            </p>
+            <div className="mt-4 flex items-center justify-center">
+              <button
+                className="bg-red-500 text-white py-2 px-4 rounded flex items-center space-x-2 hover:bg-red-600 focus:outline-none"
+                onClick={signInWithGoogle}
+              >
+                <svg className="w-5 h-5" viewBox="0 0 48 48">
+                  <path fill="#EA4335" d="M24 9.5c3.1 0 5.9 1.1 8.1 3.2l6.1-6.1C34.8 3.5 29.8 1.5 24 1.5 14.3 1.5 6.1 7.7 3.2 16.3l7.4 5.7c1.4-5.7 6.4-9.8 12.4-9.8z"></path>
+                  <path fill="#34A853" d="M44.5 24c0-1.5-.1-2.9-.4-4.3H24v8.3h11.8c-.5 2.8-2 5.2-4.2 6.8l6.5 5.1c3.8-3.5 6-8.7 6-15.9z"></path>
+                  <path fill="#FBBC05" d="M10.6 28.1c-.6-1.7-.9-3.6-.9-5.6s.3-3.8.9-5.6L3.2 11.3c-1.5 3-2.4 6.3-2.4 9.9s.8 6.9 2.4 9.9l7.4-5.7z"></path>
+                  <path fill="#4285F4" d="M24 44.5c5.8 0 10.7-1.9 14.2-5.2l-6.5-5.1c-2 1.3-4.4 2-7.7 2-6.1 0-11.1-4.1-12.4-9.8l-7.4 5.7c3 8.5 11.2 14.7 19.8 14.7z"></path>
+                </svg>
+                <span>Sign in with Google</span>
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div>
+            <h1 className="text-2xl font-bold mb-4 text-center">Sign Up</h1>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="form-group">
+                <label htmlFor="email" className="block text-gray-700">Email:</label>
+                <input type="email" id="email" name="email" required value={email} onChange={e => setEmail(e.target.value)} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="password" className="block text-gray-700">Password:</label>
+                <input type="password" id="password" name="password" required value={password} onChange={e => setPassword(e.target.value)} className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="confirm-password" className="block text-gray-700">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              </div>
+              <button type="submit" className="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">Sign Up</button>
+            </form>
+            <p className="mt-4 text-center">
+              Already have an account?{' '}
+              <Link href="#" onClick={() => setIsLogin(true)} className="text-green-500 hover:underline">Login here</Link>
+            </p>
+          </div>
+        )}
+      </motion.div>
+      {showModal && (
+        <div>
+          <ModalContent />
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <motion.div
+              className="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full"
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 className="text-2xl font-bold mb-4">Welcome {username}🎉🎉</h2>
+				  <p className="mb-4">You are signed in now</p>
+				  {profilePic ? (
+					<img src={profilePic} alt="Profile" className="w-16 h-16 rounded-full mx-auto mb-4" />
+				  ) : (
+					<div className="w-16 h-16 rounded-full bg-blue-500 text-white flex items-center justify-center mx-auto mb-4">
+					  <span className="text-2xl">{username.charAt(0)}</span>
+					</div>
+				  )}
+				  <Link href="/upload" onClick={handleCloseModal} className="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none">Close</Link>
+				</motion.div>
+			  </div>
+			</div>
+		  )}
 		</div>
-	);
+	  );
+	  
+
 }
