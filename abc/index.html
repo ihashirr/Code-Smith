@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="landing.html">Home</a></li>
+                <li><a href="data-entry.html">Data Entry</a></li>
+                <li><a href="reports.html">Reports section</a></li>
+                <li><a href="admin-panel.html">Admin</a></li>
+            </ul>
+            <ul>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Report Section</h1>
+        <div class="centered">
+            <section id="reportFilters">
+                <h2>Filters</h2>
+                <label for="categoryFilter">Category:</label>
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <option value="Category A">Category A</option>
+                    <option value="Category B">Category B</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <label for="dateFilter">Date:</label>
+                <input type="date" id="dateFilter">
+                <button id="applyFilters">Apply</button>
+            </section>
+        
+            <section id="reportActions">
+                <h2>Actions</h2>
+                <button id="exportPDF">Export to PDF</button>
+                <button id="exportCSV">Export to CSV</button>
+            </section>
+        </div>
+        <div class="table-container">
+            <table id="reportTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>3</td>
+                        <td>Report 3</td>
+                        <td>Category A</td>
+                        <td>2024-05-03</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="paginationContainer"></div>
+    </main>
+    <script src="script.js"></script>
+    <script src="pdfmake.min.js"></script>
+    <script src="FileSaver.min.js"></script>
+</body>
+</html>
