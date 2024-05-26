@@ -1,18 +1,26 @@
 "use client";
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import { FaPlus, FaTrash } from 'react-icons/fa';
 import { AuthContext } from '../components/AuthContext';
+import { useRouter } from 'next/navigation';
 
 const DataEntry = () => {
   const { register, handleSubmit, getValues } = useForm();
-  const { saveFormDataById } = useContext(AuthContext);
+  const { saveFormDataById, user } = useContext(AuthContext);
   const [dataType, setDataType] = useState('monthlyFees');
   const [months, setMonths] = useState([]);
   const [otherData, setOtherData] = useState([]);
   const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!user) {
+      router.push('/login'); 
+    }
+  }, [user, router]);
 
   const addMonth = () => {
     const nextMonthIndex = months.length % 12;
@@ -33,13 +41,13 @@ const DataEntry = () => {
   };
 
   const onSubmit = () => {
-    const { studentName, intake } = getValues();
+    const { studentName, intake, course } = getValues();
     let dataToSend;
     if (dataType === 'monthlyFees') {
       const { yearlyAmount } = getValues();
-      dataToSend = { studentName, intake, yearlyAmount, monthlyFees: months.map(({ name, fee, status }) => ({ name, fee, status })) };
+      dataToSend = { studentName, intake, course, yearlyAmount, monthlyFees: months.map(({ name, fee, status }) => ({ name, fee, status })) };
     } else {
-      dataToSend = { studentName, intake, otherFields: otherData.map(({ type, value }) => ({ type, value })) };
+      dataToSend = { studentName, intake, course, otherFields: otherData.map(({ type, value }) => ({ type, value })) };
     }
 
     const id = new Date().getTime(); // Generate a unique ID (timestamp)
@@ -49,6 +57,10 @@ const DataEntry = () => {
   const handleDataTypeChange = (e) => {
     setDataType(e.target.value);
   };
+
+  if (!user) {
+    return null; // Render nothing if the user is not authenticated
+  }
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-4">
@@ -73,6 +85,15 @@ const DataEntry = () => {
             {...register('intake')}
             className="border border-gray-300 rounded-md px-4 py-2 w-full"
           />
+          <select
+            {...register('course')}
+            className="border border-gray-300 rounded-md px-4 py-2 w-full"
+          >
+            <option value="">Select Course</option>
+            <option value="bachelor of psychology">Bachelor of Psychology</option>
+            <option value="bachelor of creative computing">Bachelor of Creative Computing</option>
+            <option value="bachelor of business management">Bachelor of Business Management</option>
+          </select>
           {dataType === 'monthlyFees' && (
             <input
               type="number"

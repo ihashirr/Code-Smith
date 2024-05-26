@@ -23,11 +23,10 @@ const Navbar = () => {
 	}, [user]);
   
 	const links = [
-	  { id: 1, link: 'upload', text: 'Upload', authRequired: true },
-	  { id: 2, link: 'payment', text: 'Payment', authRequired: false },
-	  { id: 3, link: 'upload', text: 'Data manager', authRequired: true },
-	  { id: 4, link: 'upload/Reports', text: 'Report', authRequired: true },
-	  { id: 5, link: 'Create', text: 'Create', authRequired: true },
+	  { id: 1, link: 'payment', text: 'Payment', authRequired: false },
+	  { id: 2, link: 'upload', text: 'Data manager', authRequired: true },
+	  { id: 3, link: 'upload/Reports', text: 'Report', authRequired: true },
+	  { id: 4, link: 'Create', text: 'Create', authRequired: true },
 	];
   
 	if (!mounted) {

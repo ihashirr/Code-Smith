@@ -20,8 +20,8 @@ const Footer = () => {
 
   const links = [
     { id: 1, href: '/', text: 'Home', authRequired: false },
-    { id: 2, href: '/upload/new', text: 'Upload', authRequired: true },
-    { id: 3, href: '/generate/report', text: 'Generate Reports', authRequired: true },
+    { id: 2, href: '/upload/', text: 'Data manager', authRequired: true },
+    { id: 3, href: '/upload/Reports', text: 'Generate Reports', authRequired: true },
     { id: 4, href: '/payment', text: 'Payment', authRequired: false },
   ];
 

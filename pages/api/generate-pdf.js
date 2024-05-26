@@ -16,7 +16,14 @@ const styles = StyleSheet.create({
   },
   field: {
     fontSize: 14,
-    marginBottom: 10,
+    marginTop: 10,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  field1: {
+    fontSize: 14,
+    marginTop: 30,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -70,6 +77,10 @@ const PdfDocument = ({ formData, totalPaidFees, totalUnpaidFees, remainingDue })
               <Text style={styles.label}>Intake:</Text>
               <Text style={styles.value}>{formData.intake}</Text>
             </View>
+            <View style={styles.field}>
+              <Text style={styles.label}>Course:</Text>
+              <Text style={styles.value}>{formData.course}</Text>
+            </View>
             <View style={styles.table}>
               <View style={[styles.tableRow, styles.tableHeader]}>
                 <Text style={styles.tableCell}>Month</Text>
@@ -84,15 +95,15 @@ const PdfDocument = ({ formData, totalPaidFees, totalUnpaidFees, remainingDue })
                 </View>
               ))}
             </View>
-            <View style={styles.field}>
+            <View style={styles.field1}>
               <Text style={styles.label}>Yearly Fees:</Text>
               <Text style={styles.value}>AED {parseFloat(formData.yearlyAmount || 0).toFixed(2)}</Text>
             </View>
-            <View style={styles.field}>
+            <View style={styles.field1}>
               <Text style={styles.label}>Total Paid Fees:</Text>
               <Text style={styles.value}>AED {totalPaidFees.toFixed(2)}</Text>
             </View>
-            <View style={styles.field}>
+            <View style={styles.field1}>
               <Text style={styles.label}>Remaining Due:</Text>
               <Text style={styles.value}>AED {remainingDue.toFixed(2)}</Text>
             </View>
@@ -130,6 +141,7 @@ const generateExcelFile = (formData, totalPaidFees, remainingDue) => {
     }));
     data.push({ Month: 'Total Paid Fees', Fee: totalPaidFees.toFixed(2), Status: '' });
     data.push({ Month: 'Remaining Due', Fee: remainingDue.toFixed(2), Status: '' });
+    data.push({ Month: 'Course', Fee: formData.course, Status: '' });
   }
 
   if (formData.otherFields) {
@@ -154,6 +166,7 @@ const generateCsvFile = (formData, totalPaidFees, remainingDue) => {
     data = formData.monthlyFees.map(({ name, fee, status }) => [name, fee, status]);
     data.push(['Total Paid Fees', totalPaidFees.toFixed(2), '']);
     data.push(['Remaining Due', remainingDue.toFixed(2), '']);
+    data.push(['Course', formData.course, '']);
   }
 
   if (formData.otherFields) {

@@ -400,7 +400,7 @@ const LandingPage = () => {
 						dragElastic={0.2}
 						dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
 						onDragEnd={() => {
-							setPosition({ x: 0, y: 0 });
+							setPosition({ x: 0 });
 						}}
 						style={{
 							background: 'linear-gradient(90deg, rgba(0,204,255,1) 0%, rgba(0,128,255,1) 50%, rgba(0,204,255,1) 100%)',
@@ -425,13 +425,14 @@ const LandingPage = () => {
 						animate={{ opacity: 1 }}
 						transition={{ duration: 1, delay: 0.5 }}
 					>
-						<motion.button
+						<Link
+						href="/payment"
 							className="inline-flex text-white bg-indigo-500 border-0 py-3 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}
 						>
 							Start now
-						</motion.button>
+						</Link>
 					</motion.div>
 				</div>
 			</section>

@@ -6,7 +6,8 @@ import { saveAs } from 'file-saver';
 import { AuthContext } from '../../components/AuthContext';
 import { FaTrash } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import { useRouter } from 'next/navigation';
+ 
 const DataList = () => {
 	const { fetchAllFormData, selectFormData, deleteFormDataById, selectedFormData } = useContext(AuthContext);
 	const [allData, setAllData] = useState([]);
@@ -16,11 +17,16 @@ const DataList = () => {
 	const [showModal, setShowModal] = useState(false);
 	const [searchTerm, setSearchTerm] = useState('');
 	const modalRef = useRef();
+	const router = useRouter();
+	const { saveFormDataById, user } = useContext(AuthContext);
 
 	useEffect(() => {
+		if (!user) {
+			router.push('/login'); 
+		  }
 		const data = fetchAllFormData();
 		setAllData(data);
-	}, [fetchAllFormData]);
+	}, [fetchAllFormData,user, router]);
 
 	useEffect(() => {
 		const handleKeyDown = (e) => {
