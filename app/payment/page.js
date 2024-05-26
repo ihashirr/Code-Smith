@@ -7,7 +7,8 @@ const cardData = [
   {
     title: 'Software Purchase',
     description: 'Purchase our software package and own it forever. Get full access to all features with a one-time payment.',
-    price: '100 DHS',
+    price: '999 DHS',
+    oldPrice: '1999 DHS',
     features: ['Lifetime access to software', 'Full feature set included'],
     backgroundColor: '#BAD6DE',
     textColor: 'text-gray-900',
@@ -17,7 +18,8 @@ const cardData = [
   {
     title: 'Monthly Subscription',
     description: 'Subscribe to our monthly package and get continuous access to the software with free maintenance updates.',
-    price: '200 DHS / month',
+    price: '199 DHS / month',
+    oldPrice: '249 DHS / month',
     features: ['Monthly subscription', 'Free maintenance updates', 'Cancel anytime'],
     backgroundColor: '#FED7B0',
     textColor: 'text-gray-800',
@@ -88,6 +90,7 @@ export default function Example() {
                   </ul>
                   <p className="mt-3 flex items-baseline justify-center gap-x-1">
                     <span className="text-sm sm:text-base font-bold tracking-tight text-gray-900">{card.price}</span>
+                    <span className="text-xs sm:text-sm font-bold tracking-tight text-red-500 line-through ml-2">{card.oldPrice}</span>
                   </p>
                   <Link
                     href="/login"

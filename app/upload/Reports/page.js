@@ -124,16 +124,16 @@ const DataList = () => {
 				{allData.length === 0 ? (
 					<div className="text-center mt-4">
 						<p className="text-gray-600 mb-4">No data available.</p>
-						<Link className="bg-blue-500 text-white rounded-md px-4 py-2 transform transition-transform hover:scale-105 duration-200" href="/create/new">
+						<Link className="bg-blue-500 text-white rounded-md px-4 py-2 transform transition-transform hover:scale-105 duration-200" href="/Create">
 							Create New Data
 						</Link>
 					</div>
 				) : (
-					<ul className="overflow-auto max-h-64 space-y-2">
+					<ul className="overflow-auto max-h-64 space-y-4">
 						{filteredData.map((data, index) => (
 							<motion.li
 								key={index}
-								className="flex items-center justify-between p-4 bg-gray-100 rounded-md shadow-sm transform transition-transform hover:scale-105 duration-200"
+								className="flex items-center justify-between p-4 bg-white rounded-lg shadow-md transform transition-transform hover:scale-105 duration-200"
 								whileHover={{ scale: 1.05 }}
 							>
 								<div className="flex items-center">
@@ -146,7 +146,7 @@ const DataList = () => {
 										onChange={() => handleSelect(data.id)}
 										className="mr-2 cursor-pointer rounded focus:ring-blue-500 h-4 w-4"
 									/>
-									<label htmlFor={`data-${data.id}`} className="text-blue-500 cursor-pointer">
+									<label htmlFor={`data-${data.id}`} className="text-gray-800 cursor-pointer">
 										{data.studentName} - {data.intake}
 									</label>
 								</div>
@@ -185,9 +185,9 @@ const DataList = () => {
 										<div className="overflow-y-auto max-h-64">
 											<h3 className="font-semibold mt-4">Monthly Fees</h3>
 											{selectedFormData.monthlyFees.map((month, index) => (
-												<p key={index}>{month.name}: Aed {month.fee} ({month.status})</p>
+												<p key={index} className="border-b border-gray-200 py-1">{month.name}: Aed {month.fee} ({month.status})</p>
 											))}
-											<p><strong>Yearly Fees:</strong> Aed {parseFloat(selectedFormData.yearlyAmount || 0).toFixed(2)}</p>
+											<p className="border-t border-gray-300 pt-2 mt-2"><strong>Yearly Fees:</strong> Aed {parseFloat(selectedFormData.yearlyAmount || 0).toFixed(2)}</p>
 											<p><strong>Total Paid Fees:</strong> Aed {calculateFees(selectedFormData.monthlyFees, 'Paid').toFixed(2)}</p>
 											<p><strong>Remaining Due:</strong> Aed {(parseFloat(selectedFormData.yearlyAmount || 0) - calculateFees(selectedFormData.monthlyFees, 'Paid')).toFixed(2)}</p>
 										</div>
@@ -196,7 +196,7 @@ const DataList = () => {
 									<>
 										<h3 className="font-semibold mt-4">Other Data</h3>
 										{selectedFormData.otherFields.map((field, index) => (
-											<p key={index}>{field.type}: {field.value}</p>
+											<p key={index} className="border-b border-gray-200 py-1">{field.type}: {field.value}</p>
 										))}
 									</>
 								)}

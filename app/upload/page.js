@@ -166,7 +166,7 @@ export default function App() {
           {allData.length === 0 ? (
             <div className="text-center mt-4">
               <p className="text-gray-600 mb-4">No data available.</p>
-              <Link className="bg-blue-500 text-white rounded-md px-4 py-2 transform transition-transform hover:scale-105 duration-200" href="/create">
+              <Link className="bg-blue-500 text-white rounded-md px-4 py-2 transform transition-transform hover:scale-105 duration-200" href="/Create">
                 Create New Data
               </Link>
             </div>

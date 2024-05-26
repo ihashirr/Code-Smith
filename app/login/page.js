@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useContext, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import "../styling/login.css";
+// import "../styling/login.css";
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { auth, googleProvider } from '../Create/firebase';
